@@ -14,13 +14,17 @@ html(lang="ja")
         button(type="submit") 投稿
     h2 投稿一覧
     each post in posts
+      //-フラグ変数に'admin'が現在の投稿者の場合はtrueと設定
       - let isPostedByAdmin = (post.postedBy === 'admin')
       if isPostedByAdmin
-        h3 #{post.id} : 管理人 ★
+        h3 #{post.id} : 【管理人】
       else
         h3 #{post.id} : ID:#{post.trackingCookie}
-      p #{post.content}
+      //- p #{post.content}
+      //- posts-handler.jsで改行を適用するために追加した<br>を文字列ではなくタグとして認識するよう（!= と記述するとエスケープなし）、上記を以下に変更
+      p!= post.content
       p 投稿日時: #{post.createdAt}
+      //- 管理人がユーザーの時だけ投稿者を表示するように実装
       - let isAdmin = (user === 'admin')
       if isAdmin
         p 投稿者: #{post.postedBy}

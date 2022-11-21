@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dayjs": "^1.11.6",
     "http-auth": "^4.1.9",
     "pg": "8.5.1",
     "pg-hstore": "2.3.3",

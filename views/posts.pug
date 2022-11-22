@@ -7,10 +7,14 @@ html(lang="ja")
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm",
     crossorigin="anonymous")
     title NNチャット
+  nav.navbar.navbar-light.bg-light.justify-between.sticky-top
+    a(href="#").navbar-brand NNチャット
+    form.form-inline
+       p.mr-sm-2 #{user}さんがログイン中です
+       a(href="/logout").btn.btn-info.my-2.my-sm-0 ログアウト
   body.container
     div.my-3
-      a(href="/logout").btn.btn-info.float-right ログアウト
-      h1 NNチャット
+    h2 新規投稿
     form(method="post" action="/posts")
       div.form-group
         textarea(name="content" rows="4").form-control
@@ -27,8 +31,8 @@ html(lang="ja")
               input(type="hidden" name="id" value=post.id)
               button(type="submit").btn.btn-danger.float-right 削除
         div.card-body
-          b #{post.postedBy}
-          small.float-right #{post.createdAt}
+          b 投稿者:#{post.postedBy}
+          small.float-right #{post.formattedCreatedAt}
           p.card-text!=post.content
 
     script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")

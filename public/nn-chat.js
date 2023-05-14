@@ -4,6 +4,12 @@ window.onload = function() {
   window.scrollTo(0,document.body.scrollHeight);
 }
 
+// ツールチップの有効化
+const tooltipTriggerElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+tooltipTriggerElements.forEach((tooltipTriggerElement) => {
+  new bootstrap.Tooltip(tooltipTriggerElement);
+});
+
 // エンターキー と Ctrlキー(Macの場合はCommandキー)を押していたら送信
 const formElement = document.forms['message-form'];
 const textareaElement = formElement.elements['content'];

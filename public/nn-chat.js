@@ -29,3 +29,9 @@ function isPressedSubmitKey(event) {
     return true;
   }
 }
+
+//ツールチップの有効化
+const tooltipToriggerElements = document.querySelectorAll('[data-bs-toggle="tooltip');
+tooltipToriggerElements.forEach((tooltipToriggerElement) => {
+  new bootstrap.Tooltip(tooltipToriggerElement);
+});

@@ -29,3 +29,8 @@ function isPressedSubmitKey(event) {
     return true;
   }
 }
+
+const tooltipTriggerElements=document.querySelectorAll('[data-bs-toggle="tooletip"]');
+tooltipTriggerElements.forEach((tooltipTriggerElement)=>{
+  new bootstrap.Tooltip(tooltipTriggerElement);
+});

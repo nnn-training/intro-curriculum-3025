@@ -1,8 +1,8 @@
 'use strict';
 // 一番下を表示
-window.onload = function() {
-  window.scrollTo(0,document.body.scrollHeight);
-}
+window.onload = function () {
+  window.scrollTo(0, document.body.scrollHeight);
+};
 
 // エンターキー と Ctrlキー(Macの場合はCommandキー)を押していたら送信
 const formElement = document.forms['message-form'];
@@ -29,3 +29,11 @@ function isPressedSubmitKey(event) {
     return true;
   }
 }
+
+// ツールチップの有効化
+const tooltipTriggerElements = document.querySelectorAll(
+  '[data-bs-toggle="tooltip"]'
+);
+tooltipTriggerElements.forEach((tooltipTriggerElement) => {
+  new bootstrap.Tooltip(tooltipTriggerElement);
+});

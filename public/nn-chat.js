@@ -1,4 +1,12 @@
 'use strict';
+
+// ツールチップの有効化
+const tooltipTriggerElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+tooltipTriggerElements.forEach((tooltipTriggerElement) => {
+  new bootstrap.Tooltip(tooltipTriggerElement);
+});
+
+
 // 一番下を表示
 window.addEventListener('load', () => {
   window.scrollTo(0, document.body.scrollHeight);
@@ -29,3 +37,4 @@ function isPressedSubmitKey(event) {
     return true;
   }
 }
+

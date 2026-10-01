@@ -29,7 +29,8 @@ html(lang="ja")
             h5.card-title #{post.postedBy}
               if post.postedBy === 'admin'
                 i.bi-patch-check-fill.ms-1
-            small.card-text.float-end #{post.createdAt}
+            - const tooltipTitle = `<small>${post.absoluteCreatedAt}</small>`
+            small.card-text.float-end(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title=tooltipTitle) #{post.relativeCreatedAt}
           p.card-text.lead!= post.content
         - const isDeletable = (user === post.postedBy || user === 'admin')
         if isDeletable
@@ -50,3 +51,4 @@ html(lang="ja")
       integrity="sha256-qlPVgvl+tZTCpcxYJFdHB/m6mDe84wRr+l81VoYPTgQ="
       crossorigin="anonymous")
     script(src="nn-chat.js")
+    script.
